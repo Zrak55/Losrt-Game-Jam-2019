@@ -1,0 +1,62 @@
+public GameController gc;
+....
+....
+....
+
+//within pickup method
+if(gc.curObjective==0)
+                {
+                    Objective0 ozero = hit.collider.GetComponent<Objective0>();
+                    if (ozero != null)
+                    {
+                        Destroy(ozero.gameObject);
+                        gc.objComp = true;
+
+                    }
+                }
+                else if(gc.curObjective==1)
+                {
+                    Objective1 oone = hit.collider.GetComponent<Objective1>();
+                    if (oone != null)
+                    {
+                        gc.objComp = true;
+
+                    }
+                }
+                else if (gc.curObjective == 2)
+                {
+                    if (gc.objtwocomp==0)
+                    {
+                        Objective2 otwo = hit.collider.GetComponent<Objective2>();
+                        if (otwo != null)
+                        {
+                            Destroy(otwo.gameObject);
+                            gc.objtwocomp++;
+                        }
+                    }
+                    else
+                    {
+                        Objective2Stat otwo = hit.collider.GetComponent<Objective2Stat>();
+                        if (otwo != null)
+                        {
+                            gc.objtwocomp++;
+                            gc.objComp = true;
+                        }
+                    }
+                }
+                else if (gc.curObjective == 3)
+                {
+
+                    Objective3 othree = hit.collider.GetComponent<Objective3>();
+                    if (othree != null)
+                    {
+                        gc.objthreecount++;
+                        Destroy(othree.gameObject);
+                        if(gc.objthreecount>=gc.objthreenum)
+                        {
+                            gc.objComp = true;
+                        }
+
+                    }
+                    
+                }
