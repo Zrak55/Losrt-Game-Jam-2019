@@ -29,7 +29,7 @@ public class NewBehaviourScript : MonoBehaviour
 
         if(echo == true && cooldown == 0)
         {
-            prefabLightClone = Instantiate(prefabLight, transform.position, Quaternion.identity) as GameObject;
+            prefabLightClone = Instantiate(prefabLight, transform.position + (prefabLight.transform.up * (2*(1/2))), Quaternion.identity) as GameObject;
             cooldown = 100;
         }
         if(cooldown != 0)
