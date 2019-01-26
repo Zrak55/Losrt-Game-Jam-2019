@@ -1,0 +1,103 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameController : MonoBehaviour
+{
+    public int[] objectCounter;
+    public int numObjectives;
+    public int curObjective;
+    public int instructionTimer;
+    public int instTimMax;
+    public bool objComp;
+    public int objthreecount;
+    public int objthreenum;
+    public int objtwocomp;
+    public int objtwonum;
+
+    void Start()
+    {
+        objtwocomp = 0;
+        objtwonum = 2;
+        objthreecount = 0;
+        objthreenum = 3;
+        instTimMax = 7200;
+        numObjectives = 5;
+        curObjective = 0;
+        instructionTimer = instTimMax;
+        objComp = false;
+        playInstruction(curObjective);
+    }
+
+
+    void Update()
+    {
+        checkObjective();
+        if (instructionTimer > 0)
+        {
+            instructionTimer--;
+        }
+        else
+        {
+            playInstruction(curObjective);
+            instructionTimer = instTimMax;
+        }
+        if (Input.GetKeyDown("i"))
+        {
+            playInstruction(curObjective);
+        }
+    }
+
+    void checkObjective()
+    {
+        if (objComp)
+        {
+            //pause all instructions
+            curObjective++;
+            objComp = false;
+            playInstruction(curObjective);
+            instructionTimer = instTimMax;
+        }
+    }
+
+    void playInstruction(int ob)
+    {
+        switch (ob)
+        {
+            case 0:
+                {
+                    //use unity to play a sound instruction_00;
+                    break;
+                }
+            case 1:
+                {
+                    //use unity to play a sound instruction_01;
+                    break;
+                }
+            case 2:
+                {
+                    //use unity to play a sound instruction_02;
+                    break;
+                }
+            case 3:
+                {
+                    //use unity to play a sound instruction_03;
+                    break;
+                }
+            case 4:
+                {
+                    //use unity to play a sound instruction_04;
+                    break;
+                }
+            case 5:
+                {
+                    //use unity to play a sound instruction_05;
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
+        }
+    }
+}
