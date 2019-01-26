@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+
+
+
     private bool echo;
     public GameObject prefabLight;
     GameObject prefabLightClone;
@@ -29,7 +32,7 @@ public class NewBehaviourScript : MonoBehaviour
 
         if(echo == true && cooldown == 0)
         {
-            prefabLightClone = Instantiate(prefabLight, transform.position + (prefabLight.transform.up * (2*(1/2))), Quaternion.identity) as GameObject;
+            prefabLightClone = Instantiate(prefabLight, transform.position + (prefabLight.transform.up * (2*(1/2))) + (transform.forward * .5f), Quaternion.identity) as GameObject;
             cooldown = 100;
         }
         if(cooldown != 0)
