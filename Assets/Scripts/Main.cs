@@ -7,12 +7,17 @@ public class Main : MonoBehaviour
 {
     public void startgame()
     {
-        SceneManager.LoadScene("");   // At end
+        SceneManager.LoadScene("House_5");   
     }
 
     public void exit()
     {
         Application.Quit();
+    }
+    public void startwacgame()
+    {
+        Wack.gamestatewacky = true;
+        SceneManager.LoadScene("House_5");   
     }
 
 
